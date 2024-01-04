@@ -1,0 +1,34 @@
+import { LightningElement,api } from 'lwc';
+import NAME_FIELD from '@salesforce/schema/Account.Name';
+import Rating from '@salesforce/schema/Account.Rating';
+import Website from '@salesforce/schema/Account.Website';
+import Type from '@salesforce/schema/Account.Type';
+import Industry from '@salesforce/schema/Account.Industry';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+
+
+export default class AcType2 extends LightningElement {
+ 
+    @api royalEnfield;
+    @api mateor;
+    
+    connectedCallback(){
+        console.log('royalEnfield'+this.royalEnfield);
+        console.log('mateor'+this.mateor);
+    }
+
+    fields=[NAME_FIELD,Rating,Website,Type,Industry];
+    fields2=[NAME_FIELD,Website,Type,Industry];
+     
+
+    handleSuccess(event) {
+        console.log('eveny1'+JSON.stringify(event.detail.id));
+        const evt = new ShowToastEvent({
+            title: 'Account created',
+            message: 'Account has successfully created',
+            variant: 'success',
+        });
+        this.dispatchEvent(evt);
+    }
+}
