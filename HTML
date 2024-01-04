@@ -1,0 +1,27 @@
+<template>
+    
+<h1>test message</h1>
+<template if:true ={royalEnfield}>
+
+<lightning-record-form
+    object-api-name="Account"
+    fields={fields}
+    columns="2"
+    mode="edit"
+    onsubmit={handleSuccess}
+>
+</lightning-record-form>
+</template>
+
+<template if:true ={mateor}>
+
+    <lightning-record-form
+        object-api-name="Account"
+        fields={fields2}
+        columns="2"
+        mode="edit"
+        onsubmit={handleSuccess1}
+    >
+    </lightning-record-form>
+</template>
+</template>
